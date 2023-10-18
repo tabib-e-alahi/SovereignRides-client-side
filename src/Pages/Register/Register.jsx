@@ -7,10 +7,10 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
 
-  const handleRegister = e =>{
+  const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
 
@@ -38,22 +38,20 @@ const Register = () => {
         })
           .then((result) => {
             console.log(result.user);
-           
           })
           .catch((error) => console.log(error));
-          Swal.fire(
-            'Registration Completed',
-            'Thanks for registering',
-            'success'
-          )
+        Swal.fire(
+          "Registration Completed",
+          "Thanks for registering",
+          "success"
+        );
       })
       .catch((error) => {
-        setRegisterError(error.message)
+        setRegisterError(error.message);
       });
-  }
+  };
   return (
     <div className="">
-     
       <div className=" rounded-2xl mb-20 max-w-7xl mx-auto">
         <div className=" px-8 lg:px-0">
           <div className="  card login-style bg-[#f2f5fb] lg:w-2/5 mx-auto mt-16 shadow-lg shadow-slate-400">
@@ -139,7 +137,10 @@ const Register = () => {
               </form>
               <p className="text-center">
                 <span className="font-semibold">Already have an account?</span>
-                <Link className="btn btn-link font-bold normal-case" to="/login">
+                <Link
+                  className="btn btn-link font-bold normal-case"
+                  to="/login"
+                >
                   Login
                 </Link>
               </p>

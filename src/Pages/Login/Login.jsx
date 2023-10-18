@@ -8,45 +8,37 @@ import { useNavigate } from "react-router-dom";
 // import Navbar from "../../SharedComponents/Navbar";
 
 const Login = () => {
-const {loggedIn} = useContext(AuthContext);
-const [signInError, setSignInError] = useState("");
+  const { loggedIn } = useContext(AuthContext);
+  const [signInError, setSignInError] = useState("");
 
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
-
-  const handleSignIn = e =>{
+  const handleSignIn = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
     console.log("From login page: ", email, password);
-    setSignInError('');
+    setSignInError("");
 
-    loggedIn(email,password)
-    .then((result) => {
-      console.log(result.user);
-      Swal.fire(
-        'LogIn Successful',
-        'Enjoy Yourself',
-        'success'
-      )
-      e.target.reset();
-      navigate(-1)
-      
-    })
-    .catch((error) => {
-      console.log(error);
-      setSignInError(
-        "Wrong Email or password. Please recheck your information."
-      );
-    });
-  }
-
-
+    loggedIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        Swal.fire("LogIn Successful", "Enjoy Yourself", "success");
+        e.target.reset();
+        navigate(-1);
+      })
+      .catch((error) => {
+        console.log(error);
+        setSignInError(
+          "Wrong Email or password. Please recheck your information."
+        );
+      });
+  };
 
   return (
     <div>
-     
+      
       <div className=" rounded-2xl mb-20 max-w-7xl mx-auto">
         <div className=" px-8 lg:px-0">
           <div className="  card login-style bg-[#f2f5fb] lg:w-2/5 mx-auto mt-16 shadow-lg shadow-slate-400">
@@ -54,11 +46,13 @@ const navigate = useNavigate()
               <SharedLinks></SharedLinks>
 
               <form className="" onSubmit={handleSignIn}>
-              {signInError && (
-                <label className="label">
-                  <span className="label-text text-red-400">{signInError}</span>
-                </label>
-              )}
+                {signInError && (
+                  <label className="label">
+                    <span className="label-text text-red-400">
+                      {signInError}
+                    </span>
+                  </label>
+                )}
                 {/* email input field ================  */}
                 <div className="form-control">
                   <label className="label">

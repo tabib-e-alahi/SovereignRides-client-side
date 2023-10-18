@@ -6,6 +6,7 @@ import {
   FaGooglePlus,
   FaLinkedin,
 } from "react-icons/fa";
+import logo from '../../assets/logo.png'
 
 const Footer = () => {
   return (
@@ -38,9 +39,10 @@ const Footer = () => {
         <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="">
             <h6 className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
-              Car_Villa
+            <img className="w-11/12" src={logo} alt="" />
             </h6>
-            <p>where you find you visions are made info reality.</p>
+            
+            <p className="text-sm">Where Automotive Royalty Reigns. Explore a world of unparalleled luxury, exquisite craftsmanship, and the finest automobiles. Your journey begins here, in the realm of sovereign rides.</p>
           </div>
 
           <div className="">
@@ -68,7 +70,7 @@ const Footer = () => {
                 to="/contact"
                 className="link link-hover text-xl font-medium text-[#9e9a94]"
               >
-                Contact Us
+                Add Product
               </Link>
             </p>
             <p className="">
@@ -76,7 +78,7 @@ const Footer = () => {
                 to="/gallery"
                 className="link link-hover text-xl font-medium text-[#9e9a94]"
               >
-                Gallery
+                Contact Us
               </Link>
             </p>
           </div>
