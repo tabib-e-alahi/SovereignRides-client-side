@@ -1,8 +1,56 @@
 import { Link } from "react-router-dom";
-// import Navbar from "../../SharedComponents/Navbar";
 import SharedLinks from "../../SharedComponents/SharedLinks";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useState } from "react";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const {createUser} = useContext(AuthContext);
+  const [registerError, setRegisterError] = useState("");
+
+  const handleRegister = e =>{
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+
+    setRegisterError("");
+
+    console.log("From register page: ", name, email);
+
+    if (!/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) {
+      setRegisterError(
+        "Password is invalid. It must have at least 6 characters, one uppercase letter, and one special character."
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then((result) => {
+            console.log(result.user);
+           
+          })
+          .catch((error) => console.log(error));
+          Swal.fire(
+            'Registration Completed',
+            'Thanks for registering',
+            'success'
+          )
+      })
+      .catch((error) => {
+        setRegisterError(error.message)
+      });
+  }
   return (
     <div className="">
      
@@ -12,7 +60,7 @@ const Register = () => {
             <div className="card-body flex-none ">
               <SharedLinks></SharedLinks>
 
-              <form className="">
+              <form className="" onSubmit={handleRegister}>
                 {/* name input field ================  */}
                 <div className="form-control">
                   <label className="label">
@@ -74,11 +122,11 @@ const Register = () => {
                     required
                   />
                   <label className="label">
-                    {/* {registerError && (
+                    {registerError && (
                       <p className="text-sm text-red-400 font-medium text-center">
                         {registerError}
                       </p>
-                    )} */}
+                    )}
                   </label>
                 </div>
 

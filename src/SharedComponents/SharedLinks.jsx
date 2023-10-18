@@ -1,13 +1,33 @@
+import { useContext } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SharedLinks = () => {
+  const {googleSignIn} = useContext(AuthContext);
+
+  const handleGoogleLogin = () =>{
+    googleSignIn()
+    .then(result =>{
+      console.log(result.user);
+      Swal.fire(
+        'LogIn Successful',
+        'Enjoy Yourself',
+        'success'
+      )
+    }).catch(error =>{
+        console.error(error);
+    })
+}
+
+
     return (
         <div>
              <div className="flex flex-row items-center justify-center lg:justify-start">
               <p className="mb-0 mr-4 text-lg font-semibold">Sign in with</p>
 
-              <button className="mx-1 h-9 w-9 rounded-full bg-white " >
+              <button className="mx-1 h-9 w-9 rounded-full bg-white "  onClick={handleGoogleLogin}>
                 <FcGoogle className="mx-auto h-6 w-6"></FcGoogle>
               </button>
 

@@ -1,8 +1,49 @@
 import { Link } from "react-router-dom";
 import SharedLinks from "../../SharedComponents/SharedLinks";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 // import Navbar from "../../SharedComponents/Navbar";
 
 const Login = () => {
+const {loggedIn} = useContext(AuthContext);
+const [signInError, setSignInError] = useState("");
+
+const navigate = useNavigate()
+
+
+  const handleSignIn = e =>{
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log("From login page: ", email, password);
+    setSignInError('');
+
+    loggedIn(email,password)
+    .then((result) => {
+      console.log(result.user);
+      Swal.fire(
+        'LogIn Successful',
+        'Enjoy Yourself',
+        'success'
+      )
+      e.target.reset();
+      navigate(-1)
+      
+    })
+    .catch((error) => {
+      console.log(error);
+      setSignInError(
+        "Wrong Email or password. Please recheck your information."
+      );
+    });
+  }
+
+
+
   return (
     <div>
      
@@ -12,7 +53,12 @@ const Login = () => {
             <div className="card-body flex-none ">
               <SharedLinks></SharedLinks>
 
-              <form className="">
+              <form className="" onSubmit={handleSignIn}>
+              {signInError && (
+                <label className="label">
+                  <span className="label-text text-red-400">{signInError}</span>
+                </label>
+              )}
                 {/* email input field ================  */}
                 <div className="form-control">
                   <label className="label">
