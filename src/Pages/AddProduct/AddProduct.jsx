@@ -23,35 +23,36 @@ const handleAddProduct = event =>{
 
 
   return (
-    <div className="my-20">
+    <div className="  bg-[#c7cddd] py-4 lg:py-10">
+      <h1 className="text-center text-5xl font-bold text-[#f60] ">Add a Product</h1>
       <form
-        className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16"
+        className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16 lg:p-10"
         onSubmit={handleAddProduct}
       >
         {/* model name and image ======================== */}
         <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
                 Name(Model Name)
               </span>
               <input
                 type="text"
                 name="model"
                 placeholder="Enter Model Name"
-                className="input "
+                className="input " required
               />
             </label>
           </div>
 
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">Image(URL)</span>
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">Image(URL)</span>
               <input
                 type="text"
                 name="image"
                 placeholder="Enter image url here"
-                className="input "
+                className="input " required
               />
             </label>
           </div>
@@ -61,21 +62,21 @@ const handleAddProduct = event =>{
         <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
                 Brand(Brand Name)
               </span>
               <input
                 type="text"
                 name="brand"
                 placeholder="Enter brand Name"
-                className="input "
+                className="input " required
               />
             </label>
           </div>
 
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">Type(Car Type)</span>
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">Type(Car Type)</span>
               <select className="select " name="type">
                 <option disabled defaultValue='selected'>
                   Select Types
@@ -91,26 +92,26 @@ const handleAddProduct = event =>{
         <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
                 Price
               </span>
               <input
                 type="number"
                 name="price"
                 placeholder="Enter price"
-                className="input "
+                className="input " required
               />
             </label>
           </div>
 
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">Rating(0-5)</span>
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">Rating(0-5)</span>
               <input
                 type="number"
                 name="rating"
                 placeholder="Rating"
-                className="input "
+                className="input " required
               />
             </label>
           </div>
@@ -119,12 +120,12 @@ const handleAddProduct = event =>{
 {/* short description======================== */}
         <div className="form-control w-full">
             <label className="input-group input-group-vertical">
-              <span className="font-semibold text-lg py-1">Short Description</span>
-              <textarea name="details" placeholder="give a short description about your product" className="textarea  textarea-xs " ></textarea>
+              <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">Short Description</span>
+              <textarea name="details" placeholder="give a short description about your product" required className="textarea  textarea-xs " ></textarea>
             </label>
           </div>
 
-          <button type="submit" className="btn btn-wide bg-[#f60] hover:bg-[#f60] text-white mx-auto normal-case text-lg">Add Product</button>
+          <button type="submit" className="btn btn-wide bg-[#f60] hover:bg-[#f60] text-white mx-auto normal-case text-lg border-0">Add Product</button>
       </form>
     </div>
   );

@@ -1,11 +1,11 @@
-ul a:hover{
-    background-color: #252e45!important;
-    color: white!important;
-
+ul a:hover {
+  background: none !important;
 }
 
-ul .active, .active:hover{
-    background-color: #252e45!important;
-    color: #f60!important;
-    font-weight: 700!important;
+ul .active,
+.active:hover {
+  background: none !important;
+
+  color: #f60 !important;
+  font-weight: 700 !important;
 }

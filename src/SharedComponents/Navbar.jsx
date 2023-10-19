@@ -21,26 +21,26 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink className="text-lg text-white" to="/">
+        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/">
           Home
         </NavLink>
       </li>
 
       <li>
-        <NavLink className="text-lg text-white" to="/about">
+        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/about">
           About Us
         </NavLink>
       </li>
 
       <li>
-        <NavLink className="text-lg text-white" to="/register">
+        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/register">
           Register
         </NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink className="text-lg text-white" to="/addProduct">
+            <NavLink className="text-lg lg:text-xl text-black font-bold" to="/addProduct">
             Add Product
             </NavLink>
           </li>
@@ -49,7 +49,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar lg:py-8 lg:px-6 md:bg-[#252e45]">
+    <div className="navbar lg:py-6 lg:px-10 sticky top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200">
       <div className="navbar-start w-full md:w-1/2">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,18 +70,18 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#252e45] rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-100 rounded-box w-52"
           >
             {navLinks}
           </ul>
         </div>
 
-        <Link className=" lg:w-1/2" to="/">
+        <Link className=" lg:w-3/5" to="/">
           <img className="w-full" src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu custom menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
         {user ? (

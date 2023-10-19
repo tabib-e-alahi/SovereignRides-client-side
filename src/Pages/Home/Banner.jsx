@@ -2,22 +2,20 @@
 
 const Banner = () => {
   return (
-    <div>
+    <div className="">
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen lg:relative"
         style={{
           backgroundImage:
-            "url( https://images.unsplash.com/photo-1617531653520-4893f7bbf978?auto=format&fit=crop&q=80&w=3820&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+            "url(https://i.ibb.co/0frZsTP/mer-banner.png)",
         }}
       >
-        <div className="hero-overlay bg-black bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className="hero-overlay bg-black bg-opacity-10"></div>
+        <div className="hero-content text-center lg:text-left text-neutral-content lg:absolute lg:top-20 lg:left-24">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold ">Hello there</h1>
+            <h1 className="mb-5 text-4xl lg:text-7xl font-semibold ">Inclusion is unstoppable</h1>
             <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            At Mercedes-Benz we strive to support your independent mobility.
             </p>
             <button className="btn bg-[#f60] border-0 hover:bg-[#f60] text-white">Get Started</button>
           </div>
