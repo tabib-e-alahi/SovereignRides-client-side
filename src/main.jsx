@@ -11,7 +11,7 @@ import AuthProvider from "./providers/AuthProvider";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
-import BrandProducts from "./Pages/BrandProducts/BrandProducts";
+// import BrandProducts from "./Pages/BrandProducts/BrandProducts";
 
 const router = createBrowserRouter([
   {
@@ -35,11 +35,11 @@ const router = createBrowserRouter([
         path: "/addProduct",
         element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>,
       },
-      {
-        path: "/:brand",
-        element: <PrivetRoute><BrandProducts></BrandProducts></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brand}`)
-      },
+      // {
+      //   path: "/:brand",
+      //   element: <PrivetRoute><BrandProducts></BrandProducts></PrivetRoute>,
+      //   loader: ({params}) => fetch(`http://localhost:5000/brands/${params.brand}`)
+      // },
     ],
   },
 ]);
