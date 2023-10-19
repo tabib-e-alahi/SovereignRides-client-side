@@ -12,13 +12,14 @@ const Home = () => {
   },[])
 
 
+
   return (
     <>
       <Banner></Banner>
       <h1 className="text-4xl lg:text-6xl mt-10 lg:mt-16 font-bold text-center">Our Brands</h1>
       <div className="max-w-5xl mx-auto my-10  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
-        brands.map(brand => <Brand key={brand.brand_id} brand={brand}></Brand>)
+        brands.map(brand => <Brand key={brand.brand_id} brand={brand} ></Brand>)
       }
       </div>
     </>

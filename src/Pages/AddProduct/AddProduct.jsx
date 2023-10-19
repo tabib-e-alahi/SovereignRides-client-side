@@ -107,8 +107,16 @@ const AddProduct = () => {
                 <option disabled defaultValue="selected">
                   Select Types
                 </option>
-                <option value="T-shirts">T-shirts</option>
-                <option value={"Mugs"}>Mugs</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV (Sports Utility Vehicle)">SUV (Sports Utility Vehicle)</option>
+                <option value="Convertible">Convertible</option>
+                <option value="Coupe">Coupe</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Minivan">Minivan</option>
+                <option value="Pickup Truck">Pickup Truck</option>
+                <option value="Electric Vehicle (EV)">Electric Vehicle (EV)</option>
+                <option value="Crossover">Crossover</option>
+                <option value="Luxury Car">Luxury Car</option>
               </select>
             </label>
           </div>
