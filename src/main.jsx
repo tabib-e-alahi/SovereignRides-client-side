@@ -9,6 +9,8 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import AuthProvider from "./providers/AuthProvider";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import AddProduct from "./Pages/AddProduct/AddProduct";
+import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/addProduct",
+        element: <PrivetRoute><AddProduct></AddProduct></PrivetRoute>,
       },
     ],
   },

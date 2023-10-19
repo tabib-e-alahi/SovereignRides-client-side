@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -27,8 +27,8 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink className="text-lg text-white" to="/login">
-          Login
+        <NavLink className="text-lg text-white" to="/about">
+          About Us
         </NavLink>
       </li>
 
@@ -37,10 +37,19 @@ const Navbar = () => {
           Register
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink className="text-lg text-white" to="/addProduct">
+            Add Product
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
-    <div className="navbar md:bg-[#252e45]">
+    <div className="navbar lg:py-8 lg:px-6 md:bg-[#252e45]">
       <div className="navbar-start w-full md:w-1/2">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -66,11 +75,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        
-          <Link className=" lg:w-1/2" to='/'>
+
+        <Link className=" lg:w-1/2" to="/">
           <img className="w-full" src={logo} alt="" />
-          </Link>
-       
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
