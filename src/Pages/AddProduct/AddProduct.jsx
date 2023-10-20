@@ -21,7 +21,7 @@ const AddProduct = () => {
     const newCar = {model, image, brand, type, price, rating, details}
     console.log(newCar);
 
-    fetch('http://localhost:5000/car',{
+    fetch('https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/car',{
       method: 'POST',
       headers: {
         'content-type' : 'application/json'
@@ -30,7 +30,7 @@ const AddProduct = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       if(data.insertedId){
         Swal.fire("Product Added Successfully", "Thanks for contributing", "success");
       }

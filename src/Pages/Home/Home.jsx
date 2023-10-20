@@ -6,7 +6,7 @@ const Home = () => {
   const [brands, setBrands] = useState([]);
 
   useEffect( () =>{
-    fetch('http://localhost:5000/brands')
+    fetch('https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/brands')
     .then(res => res.json())
     .then(data => setBrands(data))
   },[])
