@@ -36,7 +36,7 @@ const AddProduct = () => {
       }
     })
 
-    // event.target.reset();
+    event.target.reset();
   };
 
   return (

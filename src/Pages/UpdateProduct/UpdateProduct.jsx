@@ -1,16 +1,56 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const params = useLoaderData();
   console.log(params);
-  const {model,image,brand_name,type,price,rating,details} = params;
+  const {_id,model,image,brand_name,type,price,rating,details} = params;
+
+
+  const handleUpdateProduct = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+
+    const model = form.get("model");
+    const image = form.get("image");
+    const brand = form.get("brand");
+    const type = form.get("type");
+    const price = form.get("price");
+    const rating = form.get("rating");
+    const details = form.get("details");
+    if (rating > 5) {
+      alert("rate with 0 to  5");
+      event.target.rating.value = "";
+      return;
+    }
+
+    const updatedCar = {model, image, brand, type, price, rating, details}
+    console.log(updatedCar);
+
+    fetch(`http://localhost:5000/car/${_id}`,{
+      method: 'PUT',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(updatedCar)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.modifiedCount > 0){
+        Swal.fire("Product Updated Successfully", "Thanks for contributing", "success");
+      }
+    })
+
+    // event.target.reset();
+  };
 
   return (
     <div className="  bg-[#c7cddd] py-4 lg:py-10">
       <h1 className="text-center text-5xl font-bold text-[#f60] ">
         Update a Product
       </h1>
-      <form className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16 lg:p-10">
+      <form onSubmit={handleUpdateProduct} className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16 lg:p-10">
         {/* model name and image ======================== */}
         <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
           <div className="form-control w-full">
@@ -141,7 +181,7 @@ const UpdateProduct = () => {
           type="submit"
           className="btn btn-wide bg-[#f60] hover:bg-[#f60] text-white mx-auto normal-case text-lg border-0"
         >
-          Add Product
+         Update Product
         </button>
       </form>
     </div>
