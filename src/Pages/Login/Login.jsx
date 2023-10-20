@@ -4,14 +4,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-// import Navbar from "../../SharedComponents/Navbar";
+
+
 
 const Login = () => {
   const { loggedIn } = useContext(AuthContext);
   const [signInError, setSignInError] = useState("");
 
-  const navigate = useNavigate();
+
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Login = () => {
         console.log(result.user);
         Swal.fire("LogIn Successful", "Enjoy Yourself", "success");
         e.target.reset();
-        navigate(-1);
+         
       })
       .catch((error) => {
         console.log(error);

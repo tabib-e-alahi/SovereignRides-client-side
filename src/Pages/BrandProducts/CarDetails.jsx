@@ -1,12 +1,36 @@
-import { useLoaderData } from "react-router-dom";
-import toyota from "../../assets/toyota_4-removebg-preview.png";
+import {  useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 // bg-[#182033]
 
 const CarDetails = () => {
+    const navigate = useNavigate()
   const params = useLoaderData();
   console.log(params._id);
   const { image, model, brand_name, type, price, rating, details } = params;
+
+  const addCar = { image, model, brand_name, type, price, rating, details } ;
+
+  const handleAddToCart = () =>{
+    fetch('http://localhost:5000/carCart',{
+        method: 'POST',
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(addCar)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.insertedId){
+          Swal.fire("Product Added To Your Cart Successfully", "Thanks for contributing", "success");
+        //   return navigate(-1)
+        }
+      })
+  }
+
+
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl max-w-7xl mx-auto my-16">
       <figure>
@@ -41,7 +65,8 @@ const CarDetails = () => {
         </div>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Listen</button>
+          <button onClick={handleAddToCart} className="btn bg-[#f60] text-lg text-white hover:bg-[#f60]">Add To Cart</button>
+          <button onClick={() => navigate(-1)}>Go Back</button>
         </div>
       </div>
     </div>
