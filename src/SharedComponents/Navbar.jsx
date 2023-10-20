@@ -27,21 +27,29 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/about">
+        <NavLink
+          className="text-lg lg:text-xl text-black font-bold"
+          to="/about"
+        >
           About Us
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/register">
-          Register
         </NavLink>
       </li>
       {user && (
         <>
           <li>
-            <NavLink className="text-lg lg:text-xl text-black font-bold" to="/addProduct">
-            Add Product
+            <NavLink
+              className="text-lg lg:text-xl text-black font-bold"
+              to="/myCart"
+            >
+              My Cart
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className="text-lg lg:text-xl text-black font-bold"
+              to="/addProduct"
+            >
+              Add Product
             </NavLink>
           </li>
         </>

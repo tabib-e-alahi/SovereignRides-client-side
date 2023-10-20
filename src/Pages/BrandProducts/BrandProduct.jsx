@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const BrandProduct = ({ filterCar }) => {
-  console.log(filterCar);
+  // console.log(filterCar);
   const {_id,model,image,brand_name,type,price,rating,details} = filterCar;
 
   return (
@@ -25,6 +25,8 @@ const BrandProduct = ({ filterCar }) => {
           <div className="badge badge-outline">{rating}</div>
         </div>
         <Link to={`/:brand_name/${_id}`}><button>View Details</button></Link>
+        <Link to={`/updateProduct/${_id}`}><button>Update</button></Link>
+        
       </div>
     </div>
   );
