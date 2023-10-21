@@ -67,7 +67,7 @@ return
       </h1>
       <form onSubmit={handleUpdateProduct} className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16 lg:p-10">
         {/* model name and image ======================== */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
@@ -100,7 +100,7 @@ return
         </div>
 
         {/* brand name and type ======================================= */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row gap-10 lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
@@ -145,7 +145,7 @@ return
         </div>
 
         {/* price and rating ======================== */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row gap-10  lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">

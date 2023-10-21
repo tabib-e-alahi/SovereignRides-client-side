@@ -10,6 +10,8 @@ const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
 
+  const {dark} = useContext(AuthContext)
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -54,7 +56,7 @@ const Register = () => {
     <div className="">
       <div className=" rounded-2xl mb-20 max-w-7xl mx-auto">
         <div className=" px-8 lg:px-0">
-          <div className="  card login-style bg-[#f2f5fb] lg:w-2/5 mx-auto mt-16 shadow-lg shadow-slate-400">
+          <div className={`card login-style lg:w-2/5 mx-auto mt-16 ${dark ? 'bg-[#a9afbc]' : 'bg-[#f2f4f9]  shadow-lg shadow-slate-700'}`}>
             <div className="card-body flex-none ">
               <SharedLinks></SharedLinks>
 
@@ -130,7 +132,7 @@ const Register = () => {
 
                 {/* login button ================  */}
                 <div className="form-control mt-6">
-                  <button className="w-2/3 mx-auto btn bg-[#f60] normal-case text-white font-bold text-xl">
+                  <button className="w-2/3 mx-auto btn bg-[#f60] normal-case border-0 text-white font-bold text-xl">
                     Register
                   </button>
                 </div>

@@ -21,7 +21,7 @@ const SharedLinks = () => {
   return (
     <div>
       <div className="flex flex-row items-center justify-center lg:justify-start">
-        <p className="mb-0 mr-4 text-lg font-semibold">Sign in with</p>
+        <p className="mb-0 mr-4 text-lg text-black font-semibold">Sign in with</p>
 
         <button
           className="mx-1 h-9 w-9 rounded-full bg-white "
