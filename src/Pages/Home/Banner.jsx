@@ -15,9 +15,9 @@ const Banner = () => {
           <div className="max-w-md">
             <h1 className="mb-5 text-4xl lg:text-7xl ">Inclusion is unstoppable</h1>
             <p className="mb-5">
-            At Mercedes-Benz we strive to support your independent mobility.
+            At SovereignRides we strive to support your independent mobility.
             </p>
-            <button className="btn bg-[#f60] border-0 hover:bg-[#f60] text-white">Get Started</button>
+            
           </div>
         </div>
       </div>

@@ -67,7 +67,7 @@ const Footer = () => {
             </p>
             <p className="mb-4">
               <Link
-                to="/contact"
+                to="/addProduct"
                 className="link link-hover text-xl font-medium text-[#9e9a94]"
               >
                 Add Product
@@ -75,10 +75,10 @@ const Footer = () => {
             </p>
             <p className="">
               <Link
-                to="/gallery"
+                to="/myCart"
                 className="link link-hover text-xl font-medium text-[#9e9a94]"
               >
-                Contact Us
+                My Cart
               </Link>
             </p>
           </div>

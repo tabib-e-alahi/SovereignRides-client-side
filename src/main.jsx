@@ -15,6 +15,7 @@ import BrandProducts from "./Pages/BrandProducts/BrandProducts";
 import CarDetails from "./Pages/BrandProducts/CarDetails";
 import MyCart from "./Pages/MyCart/MyCart";
 import UpdateProduct from "./Pages/UpdateProduct/UpdateProduct";
+import About from "./Pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/login",

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Banner from "./Banner";
 import Brand from "../../SharedComponents/Brand";
+import TopCars from "./TopCars";
+import WhyChooseUs from "./WhyChooseUs";
 
 const Home = () => {
   const [brands, setBrands] = useState([]);
+ 
 
 
   useEffect( () =>{
@@ -23,6 +26,11 @@ const Home = () => {
         brands.map(brand => <Brand key={brand.brand_id} brand={brand} ></Brand>)
       }
       </div>
+      <div>
+        <h1 className="text-4xl lg:text-6xl mt-10 lg:mt-16 font-bold my-10 text-center">Top Cars</h1>
+        <TopCars></TopCars>
+      </div>
+      <WhyChooseUs></WhyChooseUs>
     </>
   );
 };
