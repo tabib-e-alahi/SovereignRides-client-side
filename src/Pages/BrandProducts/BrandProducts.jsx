@@ -7,7 +7,7 @@ const BrandProducts = () => {
   const cars = useLoaderData();
 
   const filteredCars = cars.filter(
-    (car) => car.brand_name.toUpperCase() === brand_name
+    (car) => (car.brand_name) === brand_name
   );
   console.log(filteredCars);
 

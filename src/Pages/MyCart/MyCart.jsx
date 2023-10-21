@@ -11,7 +11,7 @@ const MyCart = () => {
 
     return (
         <div>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 my-10">
             {
                 carts.map(cart => <Cart key={cart._id} cart={cart} carts={carts} setCarts={setCarts}></Cart>)
             }

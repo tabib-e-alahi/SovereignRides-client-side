@@ -9,7 +9,7 @@ const BrandProduct = ({ filterCar }) => {
   const { dark } = useContext(AuthContext);
 
   return (
-    <div className=" card     text-black ">
+    <div className=" card  text-black ">
       <figure className="h-full ">
         <img className="w-full h-full" src={image} alt="Shoes" />
       </figure>

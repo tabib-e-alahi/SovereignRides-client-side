@@ -17,11 +17,12 @@ const AddProduct = () => {
     setPriceError('')
     const model = form.get("model");
     const image = form.get("image");
-    const brand = form.get("brand");
+    const upperBrand = form.get("brand");
     const type = form.get("type");
     const price = form.get("price");
     const rating = form.get("rating");
     const details = form.get("details");
+    const brand = upperBrand.toUpperCase()
     if (rating > 5) {
       setRatingError('Rating value must be between 0 to 5')
       return;
