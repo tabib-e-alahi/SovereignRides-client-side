@@ -44,9 +44,9 @@ const BrandProduct = ({ filterCar }) => {
             </div>
           </div>
           <div
-            className={`text-2xl ${
+            className={`text-xl  lg:text-2xl ${
               dark ? "text-white " : "text-black"
-            } font-bold`}
+            }  font-bold`}
           >
             ${price}
           </div>

@@ -66,7 +66,7 @@ const Cart = ({ cart, carts, setCarts }) => {
         <div className="card-actions">
 
           <div className="flex gap-2 justify-between items-center">
-            <div className="mr-2 btn text-white bg-[#f60] hover:bg-[#f60] text-sm  border-0 py-0.5 px-1.5">
+            <div className="mr-2 btn text-white bg-[#f60] hover:bg-[#f60] text-sm  border-0 py-0 px-3">
               {brand_name}
             </div>
             <div className="text-lg font-medium  text-gray-400">{type}</div>

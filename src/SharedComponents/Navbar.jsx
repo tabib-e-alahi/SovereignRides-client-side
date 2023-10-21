@@ -53,16 +53,7 @@ const Navbar = () => {
       </li>
       {user && (
         <>
-          <li>
-            <NavLink
-              className={`text-lg lg:text-xl ${
-                dark ? "text-white" : "text-black"
-              } font-bold`}
-              to="/myCart"
-            >
-              My Cart
-            </NavLink>
-          </li>
+          
           <li>
             <NavLink
               className={`text-lg lg:text-xl ${
@@ -71,6 +62,16 @@ const Navbar = () => {
               to="/addProduct"
             >
               Add Product
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={`text-lg lg:text-xl ${
+                dark ? "text-white" : "text-black"
+              } font-bold`}
+              to="/myCart"
+            >
+              My Cart
             </NavLink>
           </li>
         </>
@@ -135,7 +136,7 @@ const Navbar = () => {
                 className="dropdown-content z-[2] menu p-1 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <h1 className="text-left  font-semibold">
+                  <h1 className={`text-left  font-semibold text-black`}>
                     Name:{user.displayName}{" "}
                   </h1>
                 </li>

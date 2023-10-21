@@ -32,11 +32,11 @@ const CarDetails = () => {
 
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl max-w-7xl mx-auto my-16">
+    <div className="card lg:card-side  shadow-xl max-w-7xl mx-auto my-16 px-3 lg:px-0">
       <figure>
         <img src={image} alt="Album" />
       </figure>
-      <div className="card-body w-3/5">
+      <div className="card-body lg:w-3/5 bg-white text-black">
         <div className="flex flex-col gap-4 flex-1">
           <h2 className="text-2xl ">
             Model: <span className="text-4xl font-semibold">{model}</span>
@@ -65,8 +65,9 @@ const CarDetails = () => {
         </div>
 
         <div className="card-actions justify-end">
+        <button className="btn bg-gray-500 text-lg text-white hover:bg-gray-500" onClick={() => navigate(-1)}>Go Back</button>
           <button onClick={handleAddToCart} className="btn bg-[#f60] text-lg text-white hover:bg-[#f60]">Add To Cart</button>
-          <button onClick={() => navigate(-1)}>Go Back</button>
+          
         </div>
       </div>
     </div>

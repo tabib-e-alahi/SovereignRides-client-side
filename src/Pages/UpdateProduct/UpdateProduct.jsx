@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
+  const [ratingError, setRatingError] = useState('')
+  const [priceError, setPriceError] = useState('')
+
+
   const params = useLoaderData();
   console.log(params);
   const {_id,model,image,brand_name,type,price,rating,details} = params;
@@ -11,17 +16,27 @@ const UpdateProduct = () => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
 
+    setRatingError('');
+    setPriceError('')
     const model = form.get("model");
     const image = form.get("image");
-    const brand = form.get("brand");
+    const upperBrand = form.get("brand");
     const type = form.get("type");
     const price = form.get("price");
     const rating = form.get("rating");
     const details = form.get("details");
+    const brand = upperBrand.toUpperCase()
     if (rating > 5) {
-      alert("rate with 0 to  5");
-      event.target.rating.value = "";
+      setRatingError('Rating value must be between 0 to 5')
       return;
+    }
+    if (rating < 0) {
+      setRatingError('Rating value must be between 0 to 5')
+      return;
+    }
+    if(price < 0){
+setPriceError('Price value can not be negative');
+return
     }
 
     const updatedCar = {model, image, brand, type, price, rating, details}
@@ -62,7 +77,7 @@ const UpdateProduct = () => {
                 type="text"
                 name="model"
                 placeholder="Enter Model Name"
-                className="input " defaultValue={model}
+                className="input text-black" defaultValue={model}
                 required
               />
             </label>
@@ -77,7 +92,7 @@ const UpdateProduct = () => {
                 type="text"
                 name="image"
                 placeholder="Enter image url here"
-                className="input " defaultValue={image}
+                className="input text-black" defaultValue={image}
                 required
               />
             </label>
@@ -95,7 +110,7 @@ const UpdateProduct = () => {
                 type="text"
                 name="brand"
                 placeholder="Enter brand Name"
-                className="input " defaultValue={brand_name}
+                className="input text-black" defaultValue={brand_name}
                 required
               />
             </label>
@@ -106,7 +121,7 @@ const UpdateProduct = () => {
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
                 Type(Car Type)
               </span>
-              <select className="select " name="type">
+              <select className="select text-black" name="type">
                 <option  defaultValue={type}>
                     {type}
                 </option>
@@ -140,9 +155,12 @@ const UpdateProduct = () => {
                 type="number"
                 name="price"
                 placeholder="Enter price"
-                className="input " defaultValue={price}
+                className="input text-black" defaultValue={price}
                 required
               />
+              {
+                priceError && <p className="text-lg text-red-600 font-medium">{priceError}</p>
+              }
             </label>
           </div>
 
@@ -155,9 +173,12 @@ const UpdateProduct = () => {
                 type="number"
                 name="rating"
                 placeholder="Rating"
-                className="input " defaultValue={rating}
+                className="input text-black" defaultValue={rating}
                 required
               />
+              {
+                ratingError && <p className="text-lg text-red-600 font-medium">{ratingError}</p>
+              }
             </label>
           </div>
         </div>
@@ -172,7 +193,7 @@ const UpdateProduct = () => {
               name="details"
               placeholder="give a short description about your product"
               required
-              className="textarea  textarea-xs " defaultValue={details}
+              className="textarea  textarea-xs text-black" defaultValue={details}
             ></textarea>
           </label>
         </div>
