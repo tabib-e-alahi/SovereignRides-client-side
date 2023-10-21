@@ -1,10 +1,20 @@
+import {  useState } from "react";
 import Swal from "sweetalert2";
+// import { AuthContext } from "../../providers/AuthProvider";
 
 const AddProduct = () => {
+  const [ratingError, setRatingError] = useState('')
+  const [priceError, setPriceError] = useState('')
+
+  // const {dark} = useContext(AuthContext);
+
+
   const handleAddProduct = (event) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
 
+    setRatingError('');
+    setPriceError('')
     const model = form.get("model");
     const image = form.get("image");
     const brand = form.get("brand");
@@ -13,13 +23,20 @@ const AddProduct = () => {
     const rating = form.get("rating");
     const details = form.get("details");
     if (rating > 5) {
-      alert("rate with 0 50 5");
-      event.target.rating.value = "";
+      setRatingError('Rating value must be between 0 to 5')
       return;
+    }
+    if (rating < 0) {
+      setRatingError('Rating value must be between 0 to 5')
+      return;
+    }
+    if(price < 0){
+setPriceError('Price value can not be negative');
+return
     }
 
     const newCar = {model, image, brand, type, price, rating, details}
-    console.log(newCar);
+    // console.log(newCar);
 
     fetch('https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/car',{
       method: 'POST',
@@ -40,16 +57,16 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="  bg-[#c7cddd] py-4 lg:py-10">
-      <h1 className="text-center text-5xl font-bold text-[#f60] ">
+    <div className={`py-4 lg:py-10`}>
+      <h1 className="text-center my-8 text-3xl lg:text-5xl font-bold text-[#f60] ">
         Add a Product
       </h1>
       <form
-        className="max-w-6xl mx-auto flex flex-col gap-10 lg:gap-16 lg:p-10"
+        className="max-w-6xl mx-auto mb-10 flex flex-col gap-10 lg:gap-16 px-4 lg:p-10"
         onSubmit={handleAddProduct}
       >
         {/* model name and image ======================== */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row  gap-8 lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
@@ -59,7 +76,7 @@ const AddProduct = () => {
                 type="text"
                 name="model"
                 placeholder="Enter Model Name"
-                className="input "
+                className="input text-black"
                 required
               />
             </label>
@@ -74,7 +91,7 @@ const AddProduct = () => {
                 type="text"
                 name="image"
                 placeholder="Enter image url here"
-                className="input "
+                className="input text-black"
                 required
               />
             </label>
@@ -82,7 +99,7 @@ const AddProduct = () => {
         </div>
 
         {/* brand name and type ======================================= */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
@@ -92,7 +109,7 @@ const AddProduct = () => {
                 type="text"
                 name="brand"
                 placeholder="Enter brand Name"
-                className="input "
+                className="input text-black"
                 required
               />
             </label>
@@ -103,7 +120,7 @@ const AddProduct = () => {
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
                 Type(Car Type)
               </span>
-              <select className="select " name="type">
+              <select className="select text-black" name="type">
                 <option disabled defaultValue="selected">
                   Select Types
                 </option>
@@ -123,7 +140,7 @@ const AddProduct = () => {
         </div>
 
         {/* price and rating ======================== */}
-        <div className="w-full flex flex-col lg:flex-row  lg:gap-20">
+        <div className="w-full flex flex-col lg:flex-row gap-8  lg:gap-20">
           <div className="form-control w-full">
             <label className="input-group input-group-vertical">
               <span className="font-semibold text-lg py-1 text-white bg-[#39435c]">
@@ -133,9 +150,12 @@ const AddProduct = () => {
                 type="number"
                 name="price"
                 placeholder="Enter price"
-                className="input "
+                className="input text-black"
                 required
               />
+              {
+                priceError && <p className="text-lg text-red-600 font-medium">{priceError}</p>
+              }
             </label>
           </div>
 
@@ -148,9 +168,12 @@ const AddProduct = () => {
                 type="number"
                 name="rating"
                 placeholder="Rating"
-                className="input "
+                className="input text-black"
                 required
               />
+              {
+                ratingError && <p className="text-lg text-red-600 font-medium">{ratingError}</p>
+              }
             </label>
           </div>
         </div>
@@ -165,7 +188,7 @@ const AddProduct = () => {
               name="details"
               placeholder="give a short description about your product"
               required
-              className="textarea  textarea-xs "
+              className="textarea  textarea-xs text-black"
             ></textarea>
           </label>
         </div>
