@@ -1,8 +1,25 @@
-# React + Vite
+# live site link: https://brandshop-assignment-10.web.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- # Theme toggle
+In my website, user can toggle the theme between dark and light depending on their preferences
 
-Currently, two official plugins are available:
+- # Private and Protected routes:
+In this websites, some pages are private/protected. User can not access this pages without logged in.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- # Has multiple logged in system:
+has email-password and google login 
+
+- # Dynamic pages:
+user can visit some pages dynamically
+
+- # create features:
+user can add products on their own in this websites
+
+- # update features:
+user can update any product on their own in this websites
+
+- # myCart features:
+user can add their liked product into my cart page
+
+- # delete features:
+after adding product to my cart page, they can also delete them
