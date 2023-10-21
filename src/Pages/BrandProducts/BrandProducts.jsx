@@ -1,15 +1,22 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import BrandProduct from "./BrandProduct";
 
 const BrandProducts = () => {
   const { brand_name } = useParams();
-
+const navigate = useNavigate()
   const cars = useLoaderData();
 
   const filteredCars = cars.filter(
     (car) => (car.brand_name) === brand_name
   );
   console.log(filteredCars);
+
+
+const handleGoBack =() =>{
+  navigate(-1)
+}
+
+
 
   return (
     <div className="mb-16">
@@ -169,7 +176,18 @@ const BrandProducts = () => {
         </div>
       ) : (
         <div>
-          <h1>No data found</h1>
+          <div className="hero min-h-screen bg-base-200">
+          <div className="hero-content text-center">
+            <div className="max-w-md">
+            <img className="w-1/2 mx-auto" src="https://i.ibb.co/fMzkJzb/out-of-stock.png" alt="" />
+              <h1 className="text-5xl mt-4 font-bold">Out of stock</h1>
+              <p className="py-6">
+                Your desire products will be available soon...
+              </p>
+              <button onClick={handleGoBack} className="btn text-white bg-[#f60] hover:bg-[#f60]">Go Back</button>
+            </div>
+          </div>
+        </div>
         </div>
       )}
     </div>
