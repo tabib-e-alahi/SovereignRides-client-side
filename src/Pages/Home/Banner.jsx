@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="hero-overlay bg-black bg-opacity-10"></div>
         <div className="hero-content text-center lg:text-left text-neutral-content lg:absolute lg:top-20 lg:left-24">
           <div className="max-w-md">
-            <h1 className="mb-5 text-4xl lg:text-7xl font-semibold ">Inclusion is unstoppable</h1>
+            <h1 className="mb-5 text-4xl lg:text-7xl ">Inclusion is unstoppable</h1>
             <p className="mb-5">
             At Mercedes-Benz we strive to support your independent mobility.
             </p>

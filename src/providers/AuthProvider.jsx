@@ -12,7 +12,8 @@ import app from "../firebase/firebase.config";
 import { createContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-// , createUserWithEmailAndPassword
+import { getStoredTheme } from "../localStorage/localStorage";
+
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -21,6 +22,11 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+ const storedTheme = getStoredTheme() 
+  const [dark, setDark] = useState(storedTheme)
+
+ 
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -65,6 +71,8 @@ const AuthProvider = ({ children }) => {
     loggedIn,
     googleSignIn,
     logOut,
+    dark,
+    setDark
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

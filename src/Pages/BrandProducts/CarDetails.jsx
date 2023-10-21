@@ -13,7 +13,7 @@ const CarDetails = () => {
   const addCar = { image, model, brand_name, type, price, rating, details } ;
 
   const handleAddToCart = () =>{
-    fetch('https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/carCart',{
+    fetch('https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/carCart',{
         method: 'POST',
         headers: {
           'content-type' : 'application/json'

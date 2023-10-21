@@ -4,8 +4,12 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import PropTypes from "prop-types";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const Navbar = () => {
+  const { dark, setDark } = useContext(AuthContext);
+
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -18,17 +22,30 @@ const Navbar = () => {
       });
   };
 
+  const handleToggle = () => {
+    setDark(!dark);
+    localStorage.setItem("dark", !dark);
+    // console.log(dark);
+  };
+
   const navLinks = (
     <>
       <li>
-        <NavLink className="text-lg lg:text-xl text-black font-bold" to="/">
+        <NavLink
+          className={`text-lg lg:text-xl ${
+            dark ? "text-white" : "text-black"
+          } font-bold`}
+          to="/"
+        >
           Home
         </NavLink>
       </li>
 
       <li>
         <NavLink
-          className="text-lg lg:text-xl text-black font-bold"
+          className={`text-lg lg:text-xl ${
+            dark ? "text-white" : "text-black"
+          } font-bold`}
           to="/about"
         >
           About Us
@@ -38,7 +55,9 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
-              className="text-lg lg:text-xl text-black font-bold"
+              className={`text-lg lg:text-xl ${
+                dark ? "text-white" : "text-black"
+              } font-bold`}
               to="/myCart"
             >
               My Cart
@@ -46,7 +65,9 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className="text-lg lg:text-xl text-black font-bold"
+              className={`text-lg lg:text-xl ${
+                dark ? "text-white" : "text-black"
+              } font-bold`}
               to="/addProduct"
             >
               Add Product
@@ -78,7 +99,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-100 rounded-box w-52"
+            className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow ${dark ? 'bg-[#172035]' : 'bg-gray-100'} rounded-box w-52`}
           >
             {navLinks}
           </ul>
@@ -92,6 +113,13 @@ const Navbar = () => {
         <ul className="menu custom menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
+        {/* theme toggle btn=================  */}
+        <input
+          onChange={handleToggle}
+          type="checkbox"
+          className="toggle mr-2 toggle-xs md:toggle-sm lg:toggle-md"
+        />
+
         {user ? (
           <div className="flex gap-1 justify-center items-center">
             <div className="dropdown dropdown-end">
@@ -123,11 +151,11 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link
-            className="btn bg-[#f60] hover:bg-[#f60] text-lg text-white font-semibold border-0 normal-case"
-            to="/login"
-          >
-            Login
+          <Link to="/login">
+            <button className="hidden lg:flex btn bg-[#f60] hover:bg-[#f60] py-0  lg:text-lg text-white font-semibold border-0 normal-case">
+              Login
+            </button>
+            <AiOutlineLogin className="lg:hidden w-full font-bold text-[#f60] h-6"></AiOutlineLogin>
           </Link>
         )}
       </div>
@@ -136,3 +164,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+Navbar.propTypes = {
+  dark: PropTypes.bool,
+  setDark: PropTypes.func,
+};

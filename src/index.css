@@ -1,7 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* body{
     background: #f1f5f9;
+    font-family: 'Roboto Condensed', sans-serif;
+} */
+
+:root {
+  --my-color: #fff;
+  /* or any other variables/style */
+}
+[data-theme="dark"] {
+  --my-color: #000;
+}
+[data-theme="pink"] {
+  --my-color: #ffabc8;
+}
+
+body {
+  background-color: var(--my-color);
 }

@@ -41,22 +41,22 @@ const router = createBrowserRouter([
       {
         path: "/:brand_name",
         element: <PrivetRoute><BrandProducts></BrandProducts></PrivetRoute>,
-        loader: () => fetch('https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/car')
+        loader: () => fetch('https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/car')
       },
       {
         path: "/:brand_name/:id",
         element: <PrivetRoute><CarDetails></CarDetails></PrivetRoute>,
-        loader: ({params}) => fetch(`https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/car/${params.id}`)
+        loader: ({params}) => fetch(`https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/car/${params.id}`)
       },
       {
         path: "/myCart",
         element: <PrivetRoute><MyCart></MyCart></PrivetRoute>,
-        loader: () => fetch('https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/carCart')
+        loader: () => fetch('https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/carCart')
       },
       {
         path: "/updateProduct/:id",
         element: <PrivetRoute><UpdateProduct></UpdateProduct></PrivetRoute>,
-        loader: ({params}) => fetch(`https://brand-shop-server-side-assignment-10-jgit17nu6-tabib-e-alahi.vercel.app/car/${params.id}`)
+        loader: ({params}) => fetch(`https://brand-shop-server-side-assignment-10-qwerci4rz-tabib-e-alahi.vercel.app/car/${params.id}`)
      
       },
     ],
