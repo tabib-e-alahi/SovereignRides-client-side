@@ -2,26 +2,26 @@
 
 ## Server side link: https://github.com/tabib-e-alahi/SovereignRides-server-side
 
-- # Theme toggle
-In my website, user can toggle the theme between dark and light depending on their preferences
+- Theme toggle
+On my website, user can toggle the theme between dark and light depending on their preferences
 
-- # Private and Protected routes:
-In this websites, some pages are private/protected. User can not access this pages without logged in.
+- Private and Protected routes:
+On this website, some pages are private/protected. Users can not access these pages without logged in.
 
-- # Has multiple logged in system:
-has email-password and google login 
+- Has multiple authentications:
+has email-password and Google login 
 
-- # Dynamic pages:
+- Dynamic pages:
 user can visit some pages dynamically
 
-- # create features:
-user can add products on their own in this websites
+- Create features:
+user can add products on their own on this websites
 
-- # update features:
-user can update any product on their own in this websites
+- Update features:
+user can update any product on their own on this website
 
-- # myCart features:
-user can add their liked product into my cart page
+- my cart features:
+user can add their liked product to my cart page
 
-- # delete features:
-after adding product to my cart page, they can also delete them
+- delete features:
+after adding a product to my cart page, they can also delete them
