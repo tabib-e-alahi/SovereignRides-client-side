@@ -1,6 +1,6 @@
-# live site link: https://brandshop-assignment-10.web.app
+## live site link: https://6534d55effd20e0faeea2941--jovial-gaufre-649ef8.netlify.app/
 
-#Server side link: https://github.com/tabib-e-alahi/SovereignRides-server-side
+## Server side link: https://github.com/tabib-e-alahi/SovereignRides-server-side
 
 - # Theme toggle
 In my website, user can toggle the theme between dark and light depending on their preferences
